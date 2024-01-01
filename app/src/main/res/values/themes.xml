@@ -1,0 +1,28 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.MovieApp" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+         <item name="colorPrimary">#FFC107</item>
+    </style>
+
+    <style name="Theme.MovieApp" parent="Base.Theme.MovieApp" />
+
+    <style name="SCREEN">
+        <item name="android:background">#EFEEEE</item>
+        <item name="android:textColor">#0C0C0C</item>
+    </style>
+    <style name="TEXT_FIELD">
+        <item name="android:backgroundTint">#FFFFFF</item>
+        <item name="android:textColorHint">#272727</item>
+    </style>
+    <style name="TEXT">
+        <item name="android:textColor">#191919</item>
+    </style>
+    <style name="TEXT_LIGHT">
+        <item name="android:textColor">#6C6C6C</item>
+    </style>
+    <style name="GENRE">
+        <item name="android:background">#FCEEC6</item>
+        <item name="android:color">#FFA000</item>
+    </style>
+</resources>

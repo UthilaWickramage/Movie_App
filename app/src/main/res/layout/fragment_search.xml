@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    style="@style/SCREEN"
+    tools:context=".fragments.SearchFragment">
+
+    <AutoCompleteTextView
+        android:id="@+id/autoCompleteTextView"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        style="@style/TEXT_FIELD"
+
+        android:background="@drawable/text_field"
+        android:drawableEnd="@drawable/search_alt_svgrepo_com"
+        android:hint="Discover"
+        android:padding="10dp" />
+</FrameLayout>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/bottomNavHome"
+
+        android:title="Discover"
+android:icon="@drawable/search_alt_svgrepo_com"
+        />
+    <item android:id="@+id/bottomNavBrowsing"
+        android:title="Movies"
+        android:icon="@drawable/movie_film_roll_for_movie_svgrepo_com"
+        />
+    <item android:id="@+id/bottomNavCart"
+        android:title="Tv Shows"
+        android:icon="@drawable/tv_material_2_svgrepo_com"
+        />
+    <item android:id="@+id/bottomNavProfile"
+        android:title="Account"
+        android:icon="@drawable/account_svgrepo_com"
+        />
+
+</menu>

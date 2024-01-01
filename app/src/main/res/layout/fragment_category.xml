@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.CategoryFragment">
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
+
+           <TextView
+               android:id="@+id/textView"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:text="Upcoming movies"
+               android:textSize="18sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toTopOf="parent" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/upcomingRecycler"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginTop="16dp"
+               app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+           <TextView
+               android:id="@+id/textView4"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:layout_marginTop="16dp"
+               android:text="Most popular movies"
+               android:textSize="18sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/upcomingRecycler" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/popularMoviesRecycler"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginTop="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintHorizontal_bias="0.0"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+           <TextView
+               android:id="@+id/textView2"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:layout_marginTop="16dp"
+               android:text="Most popular tv shows"
+               android:textSize="18sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/popularMoviesRecycler" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/populatTvRecycler"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginTop="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+           <TextView
+               android:id="@+id/textView3"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:layout_marginTop="16dp"
+               android:text="Top rated movies"
+               android:textSize="18sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/populatTvRecycler" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/topRatedRecycler"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginTop="16dp"
+               app:layout_constraintEnd_toEndOf="parent"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+           <TextView
+               android:id="@+id/textView5"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_marginStart="4dp"
+               android:layout_marginTop="16dp"
+               android:text="Top rated tv shows"
+               android:textSize="18sp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/topRatedRecycler" />
+
+           <androidx.recyclerview.widget.RecyclerView
+               android:id="@+id/topRatedTvRecycler"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent"
+               android:layout_marginTop="16dp"
+               app:layout_constraintStart_toStartOf="parent"
+               app:layout_constraintTop_toBottomOf="@+id/textView5" />
+       </androidx.constraintlayout.widget.ConstraintLayout>
+   </ScrollView>
+
+</FrameLayout>
