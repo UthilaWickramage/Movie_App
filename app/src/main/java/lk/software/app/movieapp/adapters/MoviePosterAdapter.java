@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.gson.JsonArray;
+import com.google.gson.JsonNull;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonPrimitive;
 import com.squareup.picasso.Picasso;
@@ -75,21 +76,58 @@ public class MoviePosterAdapter extends RecyclerView.Adapter<MoviePosterAdapter.
                                 JsonObject jsonObject = response.body();
 
                                 JsonPrimitive title = jsonObject.getAsJsonPrimitive("title");
-                                JsonPrimitive poster_path = jsonObject.getAsJsonPrimitive("poster_path");
-                                JsonPrimitive backdrop_img = jsonObject.getAsJsonPrimitive("backdrop_path");
-                                JsonPrimitive overview = jsonObject.getAsJsonPrimitive("overview");
-                                JsonPrimitive vote_average = jsonObject.getAsJsonPrimitive("vote_average");
-                                JsonPrimitive runtime = jsonObject.getAsJsonPrimitive("runtime");
-                                String release_date = jsonObject.getAsJsonPrimitive("release_date").getAsString();
-                                JsonPrimitive vote_count = jsonObject.getAsJsonPrimitive("vote_count");
+                                String poster_path;
+
+                                if (!(jsonObject.getAsJsonObject().get("poster_path") instanceof JsonNull)) {
+                                    poster_path = jsonObject.getAsJsonPrimitive("poster_path").getAsString();
+                                } else {
+                                    poster_path = "";
+                                }
+                                String backdrop_img;
+                                if (!(jsonObject.getAsJsonObject().get("backdrop_path") instanceof JsonNull)) {
+                                    backdrop_img = jsonObject.getAsJsonPrimitive("backdrop_path").getAsString();
+                                } else {
+                                    backdrop_img = "";
+                                }
+                                String overview;
+                                if (!(jsonObject.getAsJsonObject().get("overview") instanceof JsonNull)) {
+                                    overview = jsonObject.getAsJsonPrimitive("overview").getAsString();
+                                } else {
+                                    overview = "";
+                                }
+                                String vote_average;
+                                if (!(jsonObject.getAsJsonObject().get("vote_average") instanceof JsonNull)) {
+                                    vote_average = jsonObject.getAsJsonPrimitive("vote_average").getAsString();
+                                } else {
+                                    vote_average = "";
+                                }
+                                String runtime;
+                                if (!(jsonObject.getAsJsonObject().get("runtime") instanceof JsonNull)) {
+                                    runtime = jsonObject.getAsJsonPrimitive("runtime").getAsString();
+                                } else {
+                                    runtime = "";
+                                }
+                                String release_date;
+                                if (!(jsonObject.getAsJsonObject().get("release_date") instanceof JsonNull)) {
+                                    release_date = jsonObject.getAsJsonPrimitive("release_date").getAsString();
+                                } else {
+                                    release_date = "";
+                                }
+                                String vote_count;
+                                if (!(jsonObject.getAsJsonObject().get("vote_count") instanceof JsonNull)) {
+                                    vote_count = jsonObject.getAsJsonPrimitive("vote_count").getAsString();
+                                } else {
+                                    vote_count = "";
+                                }
                                 JsonPrimitive item_id = jsonObject.getAsJsonPrimitive("id");
                                 Movie movie = new Movie();
                                 movie.setId(Integer.parseInt(item_id.toString()));
-                                movie.setDuration(runtime.getAsString());
+                                movie.setDuration(runtime);
                                 String[] split = release_date.split("-");
                                 movie.setRelease(split[0]);
                                 try {
                                     JsonArray production_countries = jsonObject.getAsJsonArray("production_countries");
+
                                     String country = production_countries.get(0).getAsJsonObject().get("name").getAsString();
                                     if(country!=null){
                                         if(country.equals("United States of America")){
@@ -122,17 +160,17 @@ public class MoviePosterAdapter extends RecyclerView.Adapter<MoviePosterAdapter.
                                 movie.setGenres(genreNames);
 
                                 DecimalFormat decimalFormat = new DecimalFormat("0.0");
-                                Log.i("vote", vote_average.getAsString());
-                                String avg = decimalFormat.format(Double.parseDouble(vote_average.getAsString()));
+                                Log.i("vote", vote_average);
+                                String avg = decimalFormat.format(Double.parseDouble(vote_average));
                                 movie.setRating(avg);
-                                movie.setVotes(vote_count.getAsString());
+                                movie.setVotes(vote_count);
                                 movie.setTitle(title.getAsString());
                                 String baseUrl = "https://image.tmdb.org/t/p/w500";
-                                String concat = baseUrl.concat(poster_path.getAsString());
+                                String concat = baseUrl.concat(poster_path);
                                 movie.setPoster_uri(concat);
-                                String backdrop_concat = baseUrl.concat(backdrop_img.getAsString());
+                                String backdrop_concat = baseUrl.concat(backdrop_img);
                                 movie.setBackdrop_url(backdrop_concat);
-                                movie.setOverview(overview.getAsString());
+                                movie.setOverview(overview);
 
                                 Log.i("movies", title.toString());
                                 Log.i("movies", item_id.toString());

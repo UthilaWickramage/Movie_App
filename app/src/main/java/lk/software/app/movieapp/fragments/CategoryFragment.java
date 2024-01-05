@@ -1,5 +1,6 @@
 package lk.software.app.movieapp.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -21,6 +22,7 @@ import java.util.ArrayList;
 
 import lk.software.app.movieapp.MovieApi;
 import lk.software.app.movieapp.R;
+import lk.software.app.movieapp.adapters.CastAdapter;
 import lk.software.app.movieapp.adapters.MoviePosterAdapter;
 import lk.software.app.movieapp.adapters.TVPosterAdapter;
 import lk.software.app.movieapp.model.Movie;
@@ -39,14 +41,14 @@ public class CategoryFragment extends Fragment {
     ArrayList<TVShow> topRatedTvShows;
     MoviePosterAdapter posterAdapter;
     TVPosterAdapter tvPosterAdapter;
-
+static Context context;
     public CategoryFragment() {
         // Required empty public constructor
     }
 
-    public static CategoryFragment newInstance() {
+    public static CategoryFragment newInstance(Context context) {
         CategoryFragment fragment = new CategoryFragment();
-
+        CategoryFragment.context = context;
         return fragment;
     }
 
@@ -99,9 +101,9 @@ public class CategoryFragment extends Fragment {
 
                         Log.i("tv shows", String.valueOf(popularTvShows.size()));
                         RecyclerView recyclerView = view.findViewById(R.id.populatTvRecycler);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
                         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                        tvPosterAdapter = new TVPosterAdapter(requireContext(), popularTvShows);
+                        tvPosterAdapter = new TVPosterAdapter(context, popularTvShows);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(tvPosterAdapter);
                     } else {
@@ -154,9 +156,9 @@ public class CategoryFragment extends Fragment {
 
                         Log.i("movies", String.valueOf(topRatedMovies.size()));
                         RecyclerView recyclerView = view.findViewById(R.id.topRatedRecycler);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
                         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                        posterAdapter = new MoviePosterAdapter(requireContext(), topRatedMovies);
+                        posterAdapter = new MoviePosterAdapter(context, topRatedMovies);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(posterAdapter);
                     } else {
@@ -208,9 +210,9 @@ public class CategoryFragment extends Fragment {
 
                         Log.i("movies", String.valueOf(topRatedTvShows.size()));
                         RecyclerView recyclerView = view.findViewById(R.id.topRatedTvRecycler);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
                         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                        tvPosterAdapter = new TVPosterAdapter(requireContext(), topRatedTvShows);
+                        tvPosterAdapter = new TVPosterAdapter(context, topRatedTvShows);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(tvPosterAdapter);
                     } else {
@@ -264,9 +266,9 @@ public class CategoryFragment extends Fragment {
 
                         Log.i("movies", String.valueOf(upcomingMovies.size()));
                         RecyclerView recyclerView = view.findViewById(R.id.upcomingRecycler);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
                         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                        posterAdapter = new MoviePosterAdapter(requireContext(), upcomingMovies);
+                        posterAdapter = new MoviePosterAdapter(context, upcomingMovies);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(posterAdapter);
                     } else {
@@ -319,9 +321,9 @@ public class CategoryFragment extends Fragment {
 
                         Log.i("movies", String.valueOf(popularMovies.size()));
                         RecyclerView recyclerView = view.findViewById(R.id.popularMoviesRecycler);
-                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(requireContext());
+                        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(context);
                         linearLayoutManager.setOrientation(RecyclerView.HORIZONTAL);
-                        posterAdapter = new MoviePosterAdapter(requireContext(), popularMovies);
+                        posterAdapter = new MoviePosterAdapter(context, popularMovies);
                         recyclerView.setLayoutManager(linearLayoutManager);
                         recyclerView.setAdapter(posterAdapter);
                     } else {

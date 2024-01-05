@@ -1,6 +1,7 @@
 package lk.software.app.movieapp.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,7 @@ import com.squareup.picasso.Transformation;
 import java.util.ArrayList;
 
 import jp.wasabeef.picasso.transformations.MaskTransformation;
+import lk.software.app.movieapp.ActorDetailsActvity;
 import lk.software.app.movieapp.R;
 import lk.software.app.movieapp.model.Actor;
 
@@ -44,7 +46,14 @@ holder.character.setText(actor.getCharacter());
 
     Picasso.get().load(actor.getProfile_path()).centerCrop()
             .resize(120, 120).into(holder.imageView);
-
+holder.imageView.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        Intent intent = new Intent(context, ActorDetailsActvity.class);
+        intent.putExtra("id",actor.getId());
+        context.startActivity(intent);
+    }
+});
     }
 
     @Override

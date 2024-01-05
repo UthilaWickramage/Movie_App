@@ -1,5 +1,6 @@
 package lk.software.app.movieapp.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -43,7 +44,7 @@ public class SliderFragment extends Fragment {
     private TabLayout tabLayout;
 
     private static FragmentActivity context;
-
+private static Context context1;
     private SliderAdapter sliderAdapter;
 
     public SliderFragment() {
@@ -55,6 +56,14 @@ public class SliderFragment extends Fragment {
         SliderFragment fragment = new SliderFragment();
 
         return fragment;
+    }
+public static SliderFragment sliderFragment;
+    public static SliderFragment getInstance(Context context) {
+        if(sliderFragment==null){
+            sliderFragment = new SliderFragment();
+        }
+        SliderFragment.context1 = context;
+        return sliderFragment;
     }
 
     @Override
@@ -102,7 +111,7 @@ public class SliderFragment extends Fragment {
                        }
                        System.out.println(slides.size());
 
-                       sliderAdapter = new SliderAdapter(requireContext(), slides);
+                       sliderAdapter = new SliderAdapter(context1, slides);
                        viewPager.setAdapter(sliderAdapter);
                        Timer timer = new Timer();
                        timer.scheduleAtFixedRate(new SliderTimer(),4000,6000);

@@ -15,6 +15,9 @@
         android:theme="@style/Theme.MovieApp"
         tools:targetApi="31">
         <activity
+            android:name=".ActorDetailsActvity"
+            android:exported="false" />
+        <activity
             android:name=".SeasonDetailsActivity"
             android:exported="false" />
         <activity

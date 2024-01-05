@@ -32,4 +32,13 @@ public interface MovieApi {
 
     @GET("{series_id}/season/{season_number}")
     Call<JsonObject> getSeasonDetails(@Path("series_id") String series_id, @Path("season_number") String season_number, @Query("api_key") String key);
+
+    @GET("movie")
+    Call<JsonObject> getSearchMovies(@Query("api_key") String key, @Query("query") String query);
+
+    @GET("{person_id}")
+    Call<JsonObject> getActorDetails(@Path("person_id") int person_id, @Query("api_key") String key);
+
+    @GET("{person_id}/movie_credits")
+    Call<JsonObject> getActorCredits(@Path("person_id") int id,@Query("api_key") String key);
 }

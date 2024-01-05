@@ -2,20 +2,20 @@
 <menu
 
     xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/bottomNavHome"
+    <item android:id="@+id/bottomNavDiscover"
 
         android:title="Discover"
 android:icon="@drawable/search_alt_svgrepo_com"
         />
-    <item android:id="@+id/bottomNavBrowsing"
+    <item android:id="@+id/bottomNavMovies"
         android:title="Movies"
         android:icon="@drawable/movie_film_roll_for_movie_svgrepo_com"
         />
-    <item android:id="@+id/bottomNavCart"
+    <item android:id="@+id/bottomNavTvSHows"
         android:title="Tv Shows"
         android:icon="@drawable/tv_material_2_svgrepo_com"
         />
-    <item android:id="@+id/bottomNavProfile"
+    <item android:id="@+id/bottomNavAccount"
         android:title="Account"
         android:icon="@drawable/account_svgrepo_com"
         />

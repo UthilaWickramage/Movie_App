@@ -29,6 +29,7 @@ import com.google.gson.JsonPrimitive;
 import com.squareup.picasso.Picasso;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
@@ -158,6 +159,8 @@ public class DetailsActivity extends AppCompatActivity {
                         JsonArray cast = jsonObject.getAsJsonArray("cast");
                         for (int i = 0; i < cast.size(); i++) {
                             JsonObject castObject = cast.get(i).getAsJsonObject();
+                            int id = castObject.getAsJsonObject().getAsJsonPrimitive("id").getAsInt();
+
                             String name = castObject.getAsJsonObject().getAsJsonPrimitive("name").getAsString();
                             String character = castObject.getAsJsonObject().getAsJsonPrimitive("character").getAsString();
                             String profile = null;
@@ -168,10 +171,12 @@ public class DetailsActivity extends AppCompatActivity {
 
 
                             Actor actor = new Actor();
+
+                            actor.setId(id);
                             actor.setName(name);
                             actor.setCharacter(character);
                             actor.setProfile_path(profile);
-                            Log.i("cast", name);
+                            Log.i("cast", String.valueOf(id));
                             actors.add(actor);
                         }
 
@@ -213,6 +218,8 @@ public class DetailsActivity extends AppCompatActivity {
                         JsonArray cast = jsonObject.getAsJsonArray("cast");
                         for (int i = 0; i < cast.size(); i++) {
                             JsonObject castObject = cast.get(i).getAsJsonObject();
+                            int id = castObject.getAsJsonObject().getAsJsonPrimitive("id").getAsInt();
+
                             String name = castObject.getAsJsonObject().getAsJsonPrimitive("name").getAsString();
                             String character = castObject.getAsJsonObject().getAsJsonPrimitive("character").getAsString();
                             String profile = null;
@@ -223,6 +230,7 @@ public class DetailsActivity extends AppCompatActivity {
 
 
                             Actor actor = new Actor();
+                            actor.setId(id);
                             actor.setName(name);
                             actor.setCharacter(character);
                             actor.setProfile_path(profile);
